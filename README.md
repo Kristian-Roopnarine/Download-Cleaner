@@ -1,6 +1,6 @@
 ## Installation
 
-1. Clone repository with the command `git clone {url}`
+1. Clone repository with the command `git clone git@github.com:Kristian-Roopnarine/Download-Cleaner.git`
 2. That's it!
 
 ## How to run
