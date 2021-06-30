@@ -15,13 +15,13 @@ Iterate over the files and move them according to their extension.
 DOWNLOAD_DIR = f'{Path.home()}/Downloads'
 
 
-def is_file(file):
+def is_file(file:str) -> bool:
     return os.path.isfile(f'{DOWNLOAD_DIR}/{file}')
 
-def get_file_extension(file):
+def get_file_extension(file:str) -> str:
     return splitext(file)[1]
     
-def get_unique_file_extensions(files):
+def get_unique_file_extensions(files:list) -> dict:
     suffix = '_downloads'
     extension_dict = {'unknown':'unknown_downloads'}
     for obj in files:
@@ -34,13 +34,13 @@ def get_unique_file_extensions(files):
     return extension_dict
             
 
-def create_directories(ext_dict):
+def create_directories(ext_dict:dict) -> None:
     for dir_name in ext_dict.values():
         extension_dir = f'{DOWNLOAD_DIR}/{dir_name}'
         if not os.path.isdir(extension_dir):
             os.mkdir(extension_dir)
 
-def move_files_to_directory(download_dir_objs,ext_dict):
+def move_files_to_directory(download_dir_objs:list, ext_dict:dict) -> None:
     for obj in download_dir_objs:
         curr_dir = f'{DOWNLOAD_DIR}/{obj}'
         file_ext = None
